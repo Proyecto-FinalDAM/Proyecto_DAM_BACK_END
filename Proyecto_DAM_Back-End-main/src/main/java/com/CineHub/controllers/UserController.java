@@ -16,9 +16,9 @@ public class UserController {
         boolean registrado = UserDAO.registerUser(u);
 
         if (registrado) {
-            System.out.println("🎉 Usuario creado con éxito");
+            System.out.println(" Usuario creado con éxito");
         } else {
-            System.out.println("⚠ No se pudo registrar el usuario");
+            System.out.println(" No se pudo registrar el usuario");
         }
     }
 
@@ -27,9 +27,9 @@ public class UserController {
         boolean ok = UserDAO.loginUser(email, pass);
 
         if (ok) {
-            System.out.println("🎉 Bienvenido " + email);
+            System.out.println(" Bienvenido " + email);
         } else {
-            System.out.println("❌ Login incorrecto");
+            System.out.println(" Login incorrecto");
         }
     }
 }

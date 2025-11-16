@@ -1,7 +1,7 @@
 package com.CineHub.dao;
 
 import com.CineHub.entity.Usuario;
-import org.mindrot.jbcrypt.BCrypt;   // <-- IMPORTANTE
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
 
@@ -17,7 +17,7 @@ public class UserDAO {
     public static List<Usuario> getUsuarios() { ... }
 
     // ----------------------------------------------------------
-    // 📌 Obtener usuario por email
+    //  Obtener usuario por email
     // ----------------------------------------------------------
     public static Usuario getUserByEmail(String email) {
 
@@ -44,13 +44,13 @@ public class UserDAO {
     }
 
     // ----------------------------------------------------------
-    // 📌 Registrar usuario (hasheando contraseña)
+    //  Registrar usuario (hasheando contraseña)
     // ----------------------------------------------------------
     public static boolean registerUser(Usuario user) {
 
         // 1. ¿Existe el email?
         if (getUserByEmail(user.getEmail()) != null) {
-            System.out.println("❌ Email ya registrado");
+            System.out.println(" Email ya registrado");
             return false;
         }
 
@@ -66,7 +66,7 @@ public class UserDAO {
             stmt.setString(4, hashed);
 
             stmt.executeUpdate();
-            System.out.println("✅ Usuario registrado correctamente");
+            System.out.println(" Usuario registrado correctamente");
             return true;
 
         } catch (SQLException e) {
@@ -76,14 +76,14 @@ public class UserDAO {
     }
 
     // ----------------------------------------------------------
-    // 📌 Login (verificar credenciales)
+    //  Login (verificar credenciales)
     // ----------------------------------------------------------
     public static boolean loginUser(String email, String passIntroducida) {
 
         Usuario user = getUserByEmail(email);
 
         if (user == null) {
-            System.out.println("❌ Usuario no encontrado");
+            System.out.println(" Usuario no encontrado");
             return false;
         }
 
@@ -91,10 +91,10 @@ public class UserDAO {
         boolean ok = BCrypt.checkpw(passIntroducida, user.getPass());
 
         if (ok) {
-            System.out.println("✅ Login correcto");
+            System.out.println(" Login correcto");
             return true;
         } else {
-            System.out.println("❌ Contraseña incorrecta");
+            System.out.println(" Contraseña incorrecta");
             return false;
         }
     }
