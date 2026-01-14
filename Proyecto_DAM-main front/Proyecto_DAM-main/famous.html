@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de un Famoso</title>
+    <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/famous.css">
+    <link rel="stylesheet" href="css/carrusel.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <meta name="language" content="Spanish" />
+     <meta name="author" content="Carlos Ribera Donet" />
+</head>
+    <body>
+    <!--header-->
+        <div id="header"></div>
+       <main>
+            <article id="famous">
+            <div id="famous-info">
+                <div id="top-info"></div>
+                <div id="famous-left" class="info-top">
+                <span id="famous-name"></span>
+                <div id="place-of-birth"></div>
+                <span id="birth-age"></span>
+                <span id="death-age"></span>
+                </div>
+                <div id="movie-middle" class="info-middle">
+                <div id="image-column">
+                    <img id="backdrop" alt="Foto del famoso">
+                    <div id="known-for-department"></div>
+                </div>
+                <p id="biography"></p>
+                </div>
+            </div>
+            </article>
+        </main>
+
+        
+        <!-- Carrusel películas del actor -->
+        <section id="filmografia-list" class="carrusel-list" aria-label="filmografia" role="list" itemscope itemtype="https://schema.org/ItemList">
+        <h2 class="section-header">Filmografía</h2>
+        <div class="fila-peliculas"> 
+            <div class="carrusel-controles">
+            <button id="filmografia-prev" class="btn-scroll-prev">&#10094;</button>
+            <div class="peliculas-wrapper">
+                <div id="filmografia-container" class="peliculas-container">
+                <!-- Las peliculas se inyectarán aquí desde JS -->
+                </div>
+            </div>
+            <button id="filmografia-next" class="btn-scroll-next">&#10095;</button>
+            </div>
+        </div>
+        </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script type="module">
+        import { loadFamous } from './js/famousDetails.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const famousId = params.get('id'); // obtiene el id de la query string
+            if (famousId) {
+                loadFamous(famousId); // carga los datos en la página
+            }
+        });
+    </script>
+    </body>
+</html>

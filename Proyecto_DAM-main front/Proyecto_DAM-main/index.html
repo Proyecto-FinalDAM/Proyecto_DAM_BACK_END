@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>CineHub</title>
+    <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/upcoming.css">
+    <link rel="stylesheet" href="css/carrusel.css">
+    <link rel="stylesheet" href="css/people.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <meta name="language" content="Spanish" />
+  <meta name="author" content="Carlos Ribera Donet" />
+</head>
+<body>
+  
+  <!-- Header -->
+  <div id="header"></div>
+  <div id="logreg"></div>
+  
+    
+  <main>
+    <!-- Carrusel de próximos estrenos -->
+      <section id="upcoming-list" aria-label="Próximos estrenos" role="list" itemscope itemtype="https://schema.org/ItemList">
+        <h2 class="titulo-upcoming">Próximamente</h2>
+        <div class="fila-upcoming">
+          <button id="btn-upcoming-prev" class="btn-scroll-upcoming" aria-label="Anterior">&#10094;</button>
+          <div class="upcoming-wrapper" id="proximo-container">
+            <!-- Aquí JS inyecta el <article class="proximo-item"> ... </article> -->
+          </div>
+          <button id="btn-upcoming-next" class="btn-scroll-upcoming" aria-label="Siguiente">&#10095;</button>
+        </div>
+      </section>
+
+    <!-- Carrusel de cartelera -->
+    <section id="cartelera-list" class="carrusel-list" aria-label="Listado de cartelera" role="list" itemscope itemtype="https://schema.org/ItemList">
+      <h2 class="section-header">Estrenos</h2>
+      <div class="fila-peliculas"> 
+        <div class="carrusel-controles">
+          <button id="cartelera-prev" class="btn-scroll-prev">&#10094;</button>
+          <div class="peliculas-wrapper">
+            <div id="cartelera-container" class="peliculas-container">
+              <!-- Las peliculas se inyectarán aquí desde JS -->
+            </div>
+          </div>
+          <button id="cartelera-next" class="btn-scroll-next">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Famosos más populares -->
+    <section id="famosos-list" aria-label="Famosos más populares" role="list" itemscope itemtype="https://schema.org/ItemList">
+      <h2>Famosos más populares</h2>
+      <div class="fila-famosos">
+        <button id="famosos-prev" class="btn-scroll-famosos">&#8249;</button>
+        <div id="famosos-wrapper" class="famosos-wrapper">
+          <!-- Los actores se inyectarán aquí desde JS -->
+        </div>
+        <button id="famosos-next" class="btn-scroll-famosos">&#8250;</button>
+      </div>
+    </section>
+
+      
+    <!-- Carrusel trending day peliculas -->
+    <section id="trending-day-list" class="carrusel-list" aria-label="Listado de trending day" role="list" itemscope itemtype="https://schema.org/ItemList">
+      <h2 class="section-header">20 mejores valoradas de hoy</h2>
+      <div class="fila-peliculas"> 
+        <div class="carrusel-controles">
+          <button id="trending-prev" class="btn-scroll-prev">&#10094;</button>
+          <div class="peliculas-wrapper">
+            <div id="trending-container" class="peliculas-container">
+              <!-- Las peliculas se inyectarán aquí desde JS -->
+            </div>
+          </div>
+          <button id="trending-next" class="btn-scroll-next">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carrusel TOP películas -->
+    <section id="top-movies-list" class="carrusel-list" aria-label="Listado de top películas" role="list" itemscope itemtype="https://schema.org/ItemList">
+      <h2 class="section-header">Top 100</h2>
+      <div class="fila-peliculas">
+        <div class="carrusel-controles">
+          <button id="top-movies-prev" class="btn-scroll-prev">&#10094;</button>
+          <div class="peliculas-wrapper">
+            <div id="top-movies-container" class="peliculas-container">
+              <!-- Las peliculas se inyectarán aquí desde JS -->
+            </div>
+          </div>
+          <button id="top-movies-next" class="btn-scroll-next">&#10095;</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+ <div id="footer"></div>
+  <script type="module" src="js/App.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

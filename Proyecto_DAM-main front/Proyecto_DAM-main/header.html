@@ -1,0 +1,127 @@
+<!-- header.html -->
+<header class="main-header">
+  <div class="logo">
+    <a href="index.html">
+      <img src="./assets/images/logo.png" alt="PeliculasOnlineHD" />
+    </a>
+  </div>
+
+  <!-- Menú principal -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="filmList.html">Películas</a></li>
+      <li class="has-dropdown">
+        <a href="#">Categorías</a>
+        <ul class="dropdown">
+          <li><a href="filmList.html#genre-28">Acción</a></li>
+          <li><a href="filmList.html#genre-12">Aventura</a></li>
+          <li><a href="filmList.html#genre-16">Animación</a></li>
+          <li><a href="filmList.html#genre-35">Comedia</a></li>
+          <li><a href="filmList.html#genre-80">Crimen</a></li>
+          <li><a href="filmList.html#genre-99">Documental</a></li>
+          <li><a href="filmList.html#genre-18">Drama</a></li>
+          <li><a href="filmList.html#genre-10751">Familia</a></li>
+          <li><a href="filmList.html#genre-14">Fantasía</a></li>
+          <li><a href="filmList.html#genre-36">Historia</a></li>
+          <li><a href="filmList.html#genre-27">Terror</a></li>
+          <li><a href="filmList.html#genre-10402">Música</a></li>
+          <li><a href="filmList.html#genre-9648">Misterio</a></li>
+          <li><a href="filmList.html#genre-10749">Romance</a></li>
+          <li><a href="filmList.html#genre-878">Ciencia Ficción</a></li>
+          <li><a href="filmList.html#genre-10770">Película de TV</a></li>
+          <li><a href="filmList.html#genre-53">Suspense</a></li>
+          <li><a href="filmList.html#genre-10752">Bélica</a></li>
+          <li><a href="filmList.html#genre-37">Western</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Buscador único -->
+  <div class="search-bar">
+    <form role="search" aria-label="Buscar videos" autocomplete="off">
+      <input 
+        type="search" 
+        id="search-input" 
+        placeholder="Buscar..." 
+        aria-label="Buscar por nombre de video" 
+      />
+      <button type="submit" aria-label="Buscar">Buscar</button>
+    </form>
+
+    <!-- Mega menú de resultados -->
+    <div id="search-results" class="mega-dropdown"></div>
+  </div>
+
+  <button class="btnLogin-popup">Login</button>
+
+  <!-- Icono hamburguesa -->
+  <div class="hamburger" aria-label="Abrir menú" role="button" tabindex="0">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<!-- Popup Login / Registro -->
+<div id="modal-overlay"></div>
+
+<div class="wrapper">
+    <span class="icono-cerrar">
+        <i class='bx bx-x'></i>
+    </span>
+
+    <!-- FORMULARIO LOGIN -->
+    <div class="form-box login">
+        <h2>Login</h2>
+
+        <form id="loginForm">
+            <div class="input-box">
+              <input type="email" id="loginEmail" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+              <input type="password" id="loginPassword" placeholder="Contraseña" required>
+            </div>
+
+            <button type="submit" id="loginBtn">Login</button>
+
+            <div class="link-logreg">
+                <p>¿No tienes cuenta?
+                    <a href="#" class="link-registro">Regístrate</a>
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <!-- FORMULARIO REGISTRO -->
+    <div class="form-box registro">
+        <h2>Registro</h2>
+
+        <form id="registerForm">
+            <div class="input-box">
+                <input type="text" id="regNombre" placeholder="Nombre" required />
+            </div>
+
+            <div class="input-box">
+                <input type="text" id="regApellidos" placeholder="Apellidos" required />
+            </div>
+
+            <div class="input-box">
+                <input type="email" id="regEmail" placeholder="Email" required />
+            </div>
+
+            <div class="input-box">
+                <input type="password" id="regPassword" placeholder="Contraseña" required />
+            </div>
+
+            <button type="submit">Registrarse</button>
+
+            <div class="link-logreg">
+                <p>¿Ya tienes cuenta?
+                    <a href="#" class="link-login">Login</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>

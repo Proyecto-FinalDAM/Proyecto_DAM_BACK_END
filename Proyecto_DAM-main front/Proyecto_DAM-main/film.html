@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>CineHub</title>
+    <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/film.css">
+    <link rel="stylesheet" href="css/carrusel.css">
+    <link rel="stylesheet" href="css/people.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <meta name="language" content="Spanish" />
+  <meta name="author" content="Carlos Ribera Donet" />
+</head>
+
+  <body>
+    <!--header-->
+    <div id="header"></div>
+    <main>
+      <div id="movie-info">
+        <article id="movie">
+
+          <!-- Parte superior -->
+          <div id="movie-top">
+            <div id="movie-left" class="info-top">
+              <div>
+                <span id="title">Título</span>
+              </div>
+              <span id="year">Año</span>
+              <span id="runtime">Duración</span>
+            </div>
+            <div id="score">
+              <span>Puntuación</span>
+              <div id="rating">8.5</div>
+            </div>
+          </div>
+
+          <!-- Parte media -->
+          <div id="movie-middle" class="info-middle">
+            <div id="backdrop"></div>
+            <iframe id="movie-trailer" width="315" height="350" src="" frameborder="0" allowfullscreen></iframe>
+          </div>
+
+          <!-- Parte inferior -->
+          <div id="movie-bottom" class="info-bottom">
+            <div id="info-container">
+              <p id="info"></p>
+            </div>
+            <div id="genres"></div>          
+            <div id="director"></div>
+            <div id="writers"></div>
+            <div id="cast"></div>
+          </div>
+        </article>
+      </div>
+    
+      <!-- Reparto -->
+      <section id="cast-list">
+        <h2>Reparto principal</h2>
+        <div class="fila-famosos">
+          <button id="cast-prev" class="btn-scroll-famosos">&#8249;</button>
+          <div id="famosos-wrapper" class="famosos-wrapper">
+            <!-- Los actores se inyectarán aquí desde JS -->
+          </div>
+          <button id="cast-next" class="btn-scroll-famosos">&#8250;</button>
+        </div>
+      </section>
+
+      <!-- Carrusel de películas relacionadas -->
+      <section id="related-list" class="carrusel-list" aria-label="peliculas relacionadas" role="list" itemscope itemtype="https://schema.org/ItemList">
+        <h2 class="section-header">Películas relacionadas</h2>
+        <div class="fila-peliculas"> 
+          <div class="carrusel-controles">
+            <button id="related-prev" class="btn-scroll-prev">&#10094;</button>
+            <div class="peliculas-wrapper">
+              <div id="related-container" class="peliculas-container">
+                <!-- Las peliculas se inyectarán aquí desde JS -->
+              </div>
+            </div>
+            <button id="related-next" class="btn-scroll-next">&#10095;</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+      <!-- Footer -->
+      <div id="footer"></div>
+
+      <script type="module"> 
+        import { loadMovie } from './js/movieDetails.js';
+        document.addEventListener('DOMContentLoaded', () => {
+          const params = new URLSearchParams(window.location.search);
+          const movieId = params.get('id'); // obtiene el id de la query string
+          if (movieId) {
+            loadMovie(movieId); // carga los datos en la página
+          }
+        });
+    </script>
+  </body>
+</html>

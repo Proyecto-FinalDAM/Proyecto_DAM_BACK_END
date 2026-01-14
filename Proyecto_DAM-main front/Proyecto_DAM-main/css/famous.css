@@ -1,0 +1,95 @@
+/* Contenedor principal */
+#movie-middle {
+  display: flex;
+  gap: 5px; /* reduce el espacio entre la columna de info y la imagen */
+  align-items: center; 
+  padding: 15px;
+}
+
+/* Información del famoso */
+#famous-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* más cercano entre nombre, fecha y lugar */
+  text-align: center;
+  align-items: center;
+}
+
+/* Nombre y lugar de nacimiento */
+#famous-name {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #DAAD5C;
+}
+
+#place-of-birth {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* Columna de la imagen */
+#image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+#image-column img {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Texto debajo de la imagen */
+#known-for-department {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Columna de biografía */
+#biography {
+  flex: 1 1 auto;
+  text-align: justify;
+  line-height: 1.5;
+  display: flex;
+  align-items: center; /* centra verticalmente respecto a la imagen */
+}
+
+/* Responsive móvil */
+@media (max-width: 768px) {
+  #movie-middle {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 20px; /* mayor espacio alrededor para que no toque los bordes */
+  }
+
+  #famous-left {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  #image-column img {
+    max-width: 85%;           /* ocupa gran parte del ancho pero dejando margen */
+    border-radius: 20px;      /* más redondeada para estética profesional */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3); /* sombra más destacada */
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  #biography {
+    width: 90%;
+    text-align: justify;
+    align-items: normal; /* desactiva centrado vertical en móvil */
+  }
+
+  #known-for-department {
+    text-align: center;
+  }
+}

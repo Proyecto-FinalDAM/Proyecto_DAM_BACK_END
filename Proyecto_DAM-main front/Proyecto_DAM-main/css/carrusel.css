@@ -1,0 +1,213 @@
+/* ==============================
+   CARRUSEL PELICULAS UNIFICADO
+   ============================== */
+.carrusel-list {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 10px auto;
+}
+
+.section-header {
+  width: 90%;
+  max-width: 1200px;
+  margin: 24px auto 8px auto;
+  color: #DAAD5C;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* Fila del carrusel */
+.fila-peliculas {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  justify-content: flex-start; /* alinea a la izquierda */
+}
+
+/* Wrapper para scroll horizontal */
+.peliculas-wrapper {
+  flex: 1;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0;
+}
+
+/* Contenedor de items */
+.peliculas-container {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.3s ease;
+  scroll-snap-type: x mandatory;
+  padding: 24px 0;
+  justify-content: flex-start;
+}
+
+/* Cada película */
+.pelicula-item {
+  flex: 0 0 180px;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  scroll-snap-align: start;
+}
+
+.pelicula-item img.thumbnail {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid #333;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+.pelicula-item:hover {
+  box-shadow: 0 6px 18px rgba(218, 173, 92, 0.6);
+  transform: translateY(-4px);
+}
+
+/* Información y botones */
+.vote { 
+  margin-left: 10px; 
+  color: #DAAD5C; 
+}
+
+.pelicula-title { 
+  font-size: 0.95rem; 
+  font-weight: 700; 
+  margin: 0.5rem; 
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pelicula-release-year {
+  text-align: center;
+  background-color: #DAAD5C;
+  padding: 4px 0;
+  border-radius: 6px;
+  margin: 0 8px 8px 8px;
+  font-weight: 600;
+}
+
+.botones-container { 
+  display: flex;
+  gap: 10px; 
+  padding: 0.5rem;
+}
+
+/* Botones scroll */
+.carrusel-controles {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-scroll-prev,
+.btn-scroll-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 48px;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-scroll-prev { left: 0; }
+.btn-scroll-next { right: 0; }
+.btn-scroll-prev:hover,
+.btn-scroll-next:hover { 
+  background-color: #DAAD5C; 
+  color: rgba(31,111,235,1); 
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+@media screen and (max-width: 768px) {
+
+  .pelicula-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 320px; /* homogeneidad */
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+  .section-header { 
+    font-size: 1.2rem; 
+    margin: 5px auto 5px auto; 
+    text-align: center;
+  }
+
+  .peliculas-wrapper {
+    margin: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .peliculas-container {
+    gap: 0;
+    padding: 0 12.5%;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .pelicula-item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .pelicula-item img.thumbnail {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .pelicula-title {
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0.5rem 0 0.3rem 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;    /* máximo 2 líneas */
+    -webkit-box-orient: vertical;
+    line-clamp: 2;             /* estándar futuro */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;    /* evita que palabras largas desborden */
+    width: 100%;               /* ocupa todo el ancho del contenedor */
+  }
+
+  .pelicula-release-year {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;           /* fuerza que quede debajo */
+    padding: 4px 0;
+    box-sizing: border-box;
+  }
+
+  .carrusel-controles .btn-scroll-prev,
+  .carrusel-controles .btn-scroll-next {
+    display: none;
+  }
+}

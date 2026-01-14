@@ -1,0 +1,425 @@
+/* header.css - Versión completa y corregida */
+
+/* =============================
+HEADER GENERAL
+============================= */
+
+/* header.css */
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 100px; /* más espacio interno */
+  background-color: rgba(11, 18, 33, 1);
+  box-sizing: border-box;
+  position: relative; /* NO fixed */
+  width: 100%;
+  z-index: 1000;
+  height: auto; /* altura automática según contenido */
+}
+
+.main-header.scrolled {
+  height: 60px; /* altura reducida */
+  background-color: rgba(11, 18, 33, 0.7); /* transparente */
+  backdrop-filter: blur(5px); /* opcional, efecto difuminado */
+}
+
+.logo img {
+  height: 128px;
+  width: 128px;
+}
+
+/* Menú principal */
+.main-nav ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  display: inline-block;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+  color: #DAAD5C;
+  background: rgba(218,173,92,0.08);
+}
+
+.has-dropdown > a::after {
+  content: " ▼";
+  font-size: 0.6em;
+}
+
+.has-dropdown {
+  position: relative; /* importante para que el dropdown se posicione respecto al li */
+}
+
+/* Dropdown desktop en grid */
+.has-dropdown .dropdown {
+  display: none; /* oculto por defecto */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #0f1724;
+  border-radius: 4px;
+  padding: 8px;
+  min-width: 320px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  z-index: 1000;
+
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  gap: 8px 16px;
+}
+
+
+.has-dropdown.open .dropdown {
+  display: grid;
+}
+
+.dropdown a {
+  display: block;
+  padding: 8px 12px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown a:hover,
+.dropdown a:focus {
+  background: rgba(218,173,92,0.08);
+}
+
+/* Barra de búsqueda */
+.search-bar form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.search-bar input[type="search"] {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  outline: none;
+  min-width: 200px;
+}
+
+.search-bar input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.search-bar button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1f6feb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-bar button:hover,
+.search-bar button:focus {
+  background: #DAAD5C;
+}
+
+/*Botón login*/
+.main-header .btnLogin-popup {
+  padding: 8px 16px;
+  background-color: #DAAD5C;
+  color: #111;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 16px;
+}
+
+.main-header .btnLogin-popup:hover,
+.main-header .btnLogin-popup:focus {
+  background-color: #c49d50;
+}
+
+/* =============================
+RESPONSIVE MOVIL
+============================= */
+@media screen and (max-width: 768px) {
+
+  .main-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 16px;
+  }
+
+  .logo img {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 8px;
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 30;
+    margin-bottom: 8px;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+  }
+
+  .main-header .btnLogin-popup {
+    margin: 8px 0; /* separación vertical cuando el menú se despliega */
+    width: 90%;
+  }
+
+  /* Menú y barra de búsqueda ocultos por defecto */
+  .main-nav,
+  .search-bar {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Mostrar menú y barra al abrir hamburguesa */
+  .main-header.nav-open .main-nav,
+  .main-header.nav-open .search-bar {
+    display: flex;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .main-nav li {
+    width: 100%;
+  }
+
+  .main-nav a {
+    width: 100%;
+    padding: 12px 0;
+    display: block;
+    border-radius: 0;
+  }
+
+  /* Dropdown móvil en 2 columnas */
+  .has-dropdown .dropdown {
+    position: absolute;          /* absoluto respecto al li */
+    top: 100%;
+    left: 50%;                   /* centro horizontal */
+    transform: translateX(-50%); /* lo centra */
+    display: none;               /* oculto por defecto */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 12px;
+    background-color: #0b1221;
+    padding: 8px 0;
+    border-radius: 4px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    width: auto;                 /* ajusta al contenido */
+    min-width: 240px;            /* opcional, para que no sea demasiado pequeño */
+    max-width: 90%;              /* opcional, para que no sobresalga */
+    z-index: 1000;
+  }
+
+  .has-dropdown.open .dropdown {
+    display: grid;
+  }
+
+  .dropdown a {
+    padding: 10px 0;
+  }
+
+  .search-bar form {
+    flex-direction: column;
+    width: 90%;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .search-bar input,
+  .search-bar button {
+    width: 100%;
+  }
+}
+
+/* Login y Registro*/
+.wrapper {
+  
+    position: fixed; 
+    top: 50%;        
+    left: 50%;       
+    transform: translate(-50%, -50%); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    max-width: 90%;  
+    height: auto;
+    padding: 20px;
+    border: 2px solid #DAAD5C;;
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;  
+    transition: opacity 0.3s ease;
+
+
+/* Fondo oscuro detrás del popup */
+&.active-popup::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2);
+    z-index: -1; 
+}
+
+&.active-popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-box.login {
+    display: block;
+}
+
+&.active .form-box.login {
+    display: none;
+}
+
+.form-box.registro {
+    display: none;
+}
+
+&.active .form-box.registro {
+    display: block;
+}
+
+.icono-cerrar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+}
+
+.icono-cerrar i{
+    font-size: 32px;
+    color: #333;
+}
+
+h2 {
+    font-size: 2em;
+    text-align: center;
+    color:#fff;
+}
+
+.input-box{
+    position: relative;
+    width: 320px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #333;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #fff;
+    padding: 0 10px 0 35px;
+}
+
+button {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background: #444;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+.link-logreg {
+    font-size: .9em;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.link-logreg p {
+    color: #fff
+}
+
+.link-logreg p a {
+    color: #DAAD5C;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-logreg p a:hover {
+    text-decoration: underline;
+}
+}
+
+#modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 900; /* debajo del popup pero encima de todo lo demás */
+}
+
+#modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto; 
+}
