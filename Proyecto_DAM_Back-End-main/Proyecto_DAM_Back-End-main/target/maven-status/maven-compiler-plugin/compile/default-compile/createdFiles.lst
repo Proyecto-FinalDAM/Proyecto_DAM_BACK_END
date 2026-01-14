@@ -1,0 +1,4 @@
+com\CineHub\dto\RegisterRequest.class
+com\CineHub\controllers\TestController.class
+com\CineHub\dto\LoginRequest.class
+com\CineHub\controllers\UserController.class
